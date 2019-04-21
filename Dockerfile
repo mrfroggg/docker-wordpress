@@ -5,7 +5,7 @@ MAINTAINER cedric.charest@gmail.com
 RUN a2enmod rewrite expires headers
 
 RUN apt-get update \
-  && apt-get install -y zip exif git zip zlib1g-dev libpng-dev libjpeg-dev libxml2-dev libxslt-dev libgraphicsmagick1-dev graphicsmagick  mcrypt libmcrypt-dev libltdl7 gnupg
+  && apt-get install -y zip exif git zip zlib1g-dev libpng-dev libjpeg-dev libxml2-dev libxslt-dev libgraphicsmagick1-dev graphicsmagick  mcrypt libmcrypt-dev libltdl7 gnupg libzip-dev
 
 # install APCu from PECL
 RUN pecl -vvv install apcu && docker-php-ext-enable apcu
