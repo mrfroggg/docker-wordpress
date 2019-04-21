@@ -1,4 +1,4 @@
-FROM wordpress:php7.3-apache
+FROM wordpress:php7.2-apache
 MAINTAINER cedric.charest@gmail.com
 
 # enable extra Apache modules
