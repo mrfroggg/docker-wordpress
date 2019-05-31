@@ -9,7 +9,7 @@ RUN apt-get update \
 
 # install the PHP extensions we need
 RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-  && docker-php-ext-install gd json mysqli pdo pdo_mysql opcache gettext exif calendar soap sockets wddx zip bcmath
+  && docker-php-ext-install gd json mysqli pdo pdo_mysql opcache gettext exif calendar soap sockets wddx zip bcmath \
   && docker-php-ext-enable gd json mysqli pdo pdo_mysql opcache gettext exif calendar soap sockets wddx zip bcmath
 
 # install APCu from PECL
