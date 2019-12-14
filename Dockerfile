@@ -5,10 +5,11 @@ MAINTAINER cedric.charest@gmail.com
 RUN a2enmod rewrite expires headers
 
 RUN apt-get update \
-  && apt-get install -y zip exif git zip zlib1g-dev libpng-dev libjpeg-dev libxml2-dev libxslt-dev libgraphicsmagick1-dev graphicsmagick graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat mcrypt libmcrypt-dev libltdl7 gnupg libzip-dev
+  && apt-get install -y zip exif git zip zlib1g-dev libpng-dev libjpeg-dev libxml2-dev libxslt-dev libwebp-dev libwebp6 \
+  libgraphicsmagick1-dev graphicsmagick graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat mcrypt libmcrypt-dev libltdl7 gnupg libzip-dev
 
 # install the PHP extensions we need
-RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
+RUN docker-php-ext-configure gd --with-jpeg-dir=/usr --with-webp-dir=/usr --with-png-dir=/usr --with-zlib-dir=/usr \
   && docker-php-ext-install gd json mysqli pdo pdo_mysql opcache gettext exif calendar soap sockets wddx zip bcmath \
   && docker-php-ext-enable gd json mysqli pdo pdo_mysql opcache gettext exif calendar soap sockets wddx zip bcmath
 
