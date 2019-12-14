@@ -9,7 +9,7 @@ RUN apt-get update \
   libgraphicsmagick1-dev graphicsmagick graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat mcrypt libmcrypt-dev libltdl7 gnupg libzip-dev
 
 # install the PHP extensions we need
-RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-png \
+RUN docker-php-ext-configure gd --with-jpeg --with-webp \
   && docker-php-ext-install gd json mysqli pdo pdo_mysql opcache gettext exif calendar soap sockets wddx zip bcmath \
   && docker-php-ext-enable gd json mysqli pdo pdo_mysql opcache gettext exif calendar soap sockets wddx zip bcmath
 
