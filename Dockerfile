@@ -1,4 +1,4 @@
-FROM wordpress:php7.2-apache
+FROM wordpress:php7.4-apache
 MAINTAINER cedric.charest@gmail.com
 
 # enable extra Apache modules
@@ -16,19 +16,11 @@ RUN docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 RUN pecl -vvv install apcu && docker-php-ext-enable apcu
 
 # install GMagick from PECL
-RUN pecl -vvv install gmagick-beta && docker-php-ext-enable gmagick
+#RUN pecl -vvv install gmagick-beta && docker-php-ext-enable gmagick
+RUN pecl -vvv install imagick && docker-php-ext-enable imagick
 
 # install mcrypt
 RUN pecl -vvv install mcrypt-1.0.2 && docker-php-ext-enable mcrypt
-
-# Download WordPress CLI
-RUN curl -L "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar" > /usr/bin/wp \
-    && chmod +x /usr/bin/wp
-
-# Download Composer CLI
-RUN curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
-    && chmod +x /usr/bin/composer
-
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
