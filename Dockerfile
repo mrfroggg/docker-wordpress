@@ -19,9 +19,6 @@ RUN pecl -vvv install apcu && docker-php-ext-enable apcu
 # install GMagick from PECL
 #RUN pecl -vvv install gmagick-beta && docker-php-ext-enable gmagick
 
-# install mcrypt
-RUN pecl -vvv install mcrypt-1.0.2 && docker-php-ext-enable mcrypt
-
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
 RUN { \
